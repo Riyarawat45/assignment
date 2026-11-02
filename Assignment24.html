@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical Test Cases</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eaf5f0;
+            padding: 25px;
+        }
+
+        .container {
+            background: white;
+            max-width: 750px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #247a55;
+        }
+
+        button {
+            background: #247a55;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+        .test {
+            background: #f1f7f3;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+
+        #reflection {
+            background: #fff8e5;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>JavaScript Practical Testing</h1>
+
+    <p>Click below to run all test cases.</p>
+
+    <button onclick="runTests()">Run Test Cases</button>
+
+    <div id="output"></div>
+
+    <div id="reflection">
+
+        <h3>My Reflection</h3>
+
+        <p>
+            Through this practical, I learned how to create
+            reusable JavaScript functions, validate user inputs,
+            merge objects and calculate totals.
+
+            Testing helped me identify errors and improve
+            the accuracy of my code.
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+
+// Utility Function 1
+function isValidName(name) {
+
+    return typeof name === "string" &&
+           name.trim().length >= 2;
+
+}
+
+
+// Utility Function 2
+function isValidEmail(email) {
+
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+}
+
+
+// Utility Function 3
+function isValidQuantity(quantity) {
+
+    return Number.isInteger(quantity) && quantity > 0;
+
+}
+
+
+// Utility Function 4
+function mergeSettings(defaults, custom) {
+
+    return { ...defaults, ...custom };
+
+}
+
+
+// Utility Function 5
+function calculateTotal(items) {
+
+    return items.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+    );
+
+}
+
+
+// Test Function
+function runTests() {
+
+    let tests = [
+
+        {
+            name: "Valid Name",
+            result: isValidName("Riya"),
+            expected: true
+        },
+
+        {
+            name: "Invalid Name",
+            result: isValidName(""),
+            expected: false
+        },
+
+        {
+            name: "Valid Email",
+            result: isValidEmail("riya@gmail.com"),
+            expected: true
+        },
+
+        {
+            name: "Invalid Email",
+            result: isValidEmail("riya@"),
+            expected: false
+        },
+
+        {
+            name: "Valid Quantity",
+            result: isValidQuantity(5),
+            expected: true
+        },
+
+        {
+            name: "Invalid Quantity",
+            result: isValidQuantity(-2),
+            expected: false
+        },
+
+        {
+            name: "Calculate Cart Total",
+            result: calculateTotal([
+                { price: 100, quantity: 2 },
+                { price: 50, quantity: 1 }
+            ]),
+            expected: 250
+        }
+
+    ];
+
+    let output = "";
+
+    let passed = 0;
+
+    tests.forEach(function(test) {
+
+        let status = test.result === test.expected;
+
+        if (status) {
+            passed++;
+        }
+
+        output += `
+            <div class="test">
+                <b>${test.name}</b><br>
+                Expected: ${test.expected}<br>
+                Actual: ${test.result}<br>
+                Status: ${status ? "PASS" : "FAIL"}
+            </div>
+        `;
+
+    });
+
+    output += "<h3>Passed: " + passed +
+              " / " + tests.length + "</h3>";
+
+    document.getElementById("output").innerHTML = output;
+
+}
+
+</script>
+
+</body>
+</html>

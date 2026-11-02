@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bug Log</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 25px;
+            background: #f4f4f4;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid gray;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #34495e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Task Manager - Bug Log</h1>
+
+    <table>
+        <tr>
+            <th>Bug</th>
+            <th>Cause</th>
+            <th>Fix</th>
+            <th>Verification</th>
+        </tr>
+
+        <tr>
+            <td>Empty task added</td>
+            <td>Missing validation</td>
+            <td>Added empty input check</td>
+            <td>Fixed</td>
+        </tr>
+
+        <tr>
+            <td>Tasks disappeared</td>
+            <td>Data not stored</td>
+            <td>Used localStorage</td>
+            <td>Fixed</td>
+        </tr>
+
+        <tr>
+            <td>Delete not working</td>
+            <td>Incorrect task selection</td>
+            <td>Used filter method</td>
+            <td>Fixed</td>
+        </tr>
+
+        <tr>
+            <td>Completed task not visible</td>
+            <td>Missing CSS class</td>
+            <td>Added completed class</td>
+            <td>Fixed</td>
+        </tr>
+    </table>
+
+    <h2>Conclusion</h2>
+
+    <p>
+        Bugs were identified, their causes were checked,
+        and fixes were applied and verified.
+    </p>
+
+</body>
+</html>

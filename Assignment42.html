@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            padding: 30px;
+            text-align: center;
+        }
+        form, #summary {
+            background: white;
+            padding: 20px;
+            max-width: 350px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+        input, textarea, button {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contact Us</h1>
+
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+
+        <input type="email" id="email" placeholder="Your Email" required>
+
+        <textarea id="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="summary"></div>
+
+    <script>
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            const summary = document.getElementById("summary");
+            summary.innerHTML = "";
+
+            const heading = document.createElement("h2");
+            heading.textContent = "Submission Summary";
+
+            const namePara = document.createElement("p");
+            namePara.textContent = "Name: " + name;
+
+            const emailPara = document.createElement("p");
+            emailPara.textContent = "Email: " + email;
+
+            const messagePara = document.createElement("p");
+            messagePara.textContent = "Message: " + message;
+
+            summary.append(heading, namePara, emailPara, messagePara);
+
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Website</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+        }
+
+        header {
+            background: #3949ab;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        nav {
+            background: #222;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px #0002;
+        }
+
+        .box h2 {
+            color: #3949ab;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Tablet Screen */
+
+        @media(max-width: 768px) {
+
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        /* Mobile Screen */
+
+        @media(max-width: 500px) {
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>My Responsive Website</h1>
+
+        <p>Website for Desktop, Tablet and Mobile</p>
+
+    </header>
+
+    <nav>
+
+        <a href="#">Home</a>
+
+        <a href="#">About</a>
+
+        <a href="#">Services</a>
+
+        <a href="#">Contact</a>
+
+    </nav>
+
+    <div class="container">
+
+        <div class="box">
+
+            <h2>HTML</h2>
+
+            <p>HTML is used to create website structure.</p>
+
+        </div>
+
+        <div class="box">
+
+            <h2>CSS</h2>
+
+            <p>CSS is used to design beautiful websites.</p>
+
+        </div>
+
+        <div class="box">
+
+            <h2>JavaScript</h2>
+
+            <p>JavaScript makes websites interactive.</p>
+
+        </div>
+
+    </div>
+
+    <footer>
+
+        <p>© 2026 My Responsive Website</p>
+
+    </footer>
+
+</body>
+</html>

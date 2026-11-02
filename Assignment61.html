@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assessment Repository</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            max-width: 650px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        li {
+            padding: 8px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>My Web Development Assessment</h1>
+
+        <h2>Student Details</h2>
+
+        <p>Name: Riya Rawat</p>
+        <p>Course: BCA Artificial Intelligence</p>
+        <p>Project: Student Task Manager</p>
+
+        <h2>Repository Checklist</h2>
+
+        <ul>
+            <li>HTML assignments completed.</li>
+            <li>CSS assignments completed.</li>
+            <li>JavaScript assignments completed.</li>
+            <li>Projects tested in browser.</li>
+            <li>Source code organized.</li>
+            <li>README file updated.</li>
+            <li>GitHub repository updated.</li>
+        </ul>
+
+        <h2>Submission Status</h2>
+
+        <p id="status">Ready for submission.</p>
+
+        <button onclick="submitProject()">Confirm Submission</button>
+
+    </div>
+
+    <script>
+        function submitProject() {
+            document.getElementById("status").textContent =
+                "Project submission checklist completed!";
+        }
+    </script>
+
+</body>
+</html>

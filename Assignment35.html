@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 35 - DOM Relationships</title>
+</head>
+<body>
+
+    <h1>My Profile</h1>
+
+    <div id="container">
+        <h2>Student Information</h2>
+        <p id="info">Name: Riya</p>
+        <p>Course: BCA AI</p>
+        <button id="btn">Click Me</button>
+    </div>
+
+    <script>
+        const container = document.getElementById("container");
+        const heading = document.querySelector("h2");
+        const paragraph = document.getElementById("info");
+        const button = document.getElementById("btn");
+
+        // Parent element
+        console.log("Parent:", heading.parentElement);
+
+        // Child elements
+        console.log("Children:", container.children);
+
+        // Next sibling
+        console.log("Next Sibling:", heading.nextElementSibling);
+
+        // Previous sibling
+        console.log("Previous Sibling:", button.previousElementSibling);
+
+        // First child
+        console.log("First Child:", container.firstElementChild);
+
+        // Last child
+        console.log("Last Child:", container.lastElementChild);
+
+    </script>
+
+</body>
+</html>

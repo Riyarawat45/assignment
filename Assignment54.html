@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Task Manager - Core Feature</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #eef2ff;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            max-width: 450px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        li {
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Student Task Manager</h1>
+
+        <input type="text" id="taskInput" placeholder="Enter task">
+
+        <button onclick="addTask()">Add Task</button>
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+    <h2>README Progress Log</h2>
+
+    <p>Project: Student Task Manager</p>
+    <p>Progress: Core task feature completed.</p>
+    <p>Technology: HTML, CSS and JavaScript.</p>
+
+    <script>
+        let tasks = [];
+
+        function addTask() {
+            const input = document.getElementById("taskInput");
+            const value = input.value.trim();
+
+            if (value === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            tasks.push(value);
+            input.value = "";
+
+            displayTasks();
+        }
+
+        function displayTasks() {
+            const list = document.getElementById("taskList");
+            list.innerHTML = "";
+
+            tasks.forEach(function(task) {
+                const li = document.createElement("li");
+                li.textContent = task;
+                list.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>

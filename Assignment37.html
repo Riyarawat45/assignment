@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 37 - Profile Updater</title>
+</head>
+<body>
+
+    <h1>My Profile</h1>
+
+    <h2 id="name">Riya Rawat</h2>
+    <p id="course">BCA Artificial Intelligence</p>
+
+    <input type="text" id="newName" placeholder="Enter new name">
+    <input type="text" id="newCourse" placeholder="Enter new course">
+
+    <button id="updateBtn">Update Profile</button>
+
+    <script>
+        const name = document.getElementById("name");
+        const course = document.getElementById("course");
+
+        document.getElementById("updateBtn").addEventListener("click", function() {
+
+            const newName = document.getElementById("newName").value;
+            const newCourse = document.getElementById("newCourse").value;
+
+            if (newName.trim() !== "") {
+                name.textContent = newName;
+            }
+
+            if (newCourse.trim() !== "") {
+                course.textContent = newCourse;
+            }
+
+        });
+    </script>
+
+</body>
+</html>

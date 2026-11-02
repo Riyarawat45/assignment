@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 38 - Interactive Profile</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f0f0f0;
+            padding: 30px;
+        }
+
+        .profile {
+            background: white;
+            padding: 25px;
+            max-width: 350px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .active {
+            border: 3px solid green;
+        }
+
+        .inactive {
+            border: 3px solid red;
+            opacity: 0.6;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Interactive Profile</h1>
+
+    <div class="profile active" id="profile">
+        <h2>Riya Rawat</h2>
+        <p>BCA Artificial Intelligence Student</p>
+        <p id="status">Status: Active</p>
+
+        <button id="toggleBtn" aria-pressed="true">
+            Deactivate Profile
+        </button>
+    </div>
+
+    <script>
+        const profile = document.getElementById("profile");
+        const status = document.getElementById("status");
+        const button = document.getElementById("toggleBtn");
+
+        button.addEventListener("click", function() {
+
+            const isActive = profile.classList.contains("active");
+
+            if (isActive) {
+                profile.classList.remove("active");
+                profile.classList.add("inactive");
+
+                status.textContent = "Status: Inactive";
+                button.textContent = "Activate Profile";
+                button.setAttribute("aria-pressed", "false");
+
+            } else {
+                profile.classList.remove("inactive");
+                profile.classList.add("active");
+
+                status.textContent = "Status: Active";
+                button.textContent = "Deactivate Profile";
+                button.setAttribute("aria-pressed", "true");
+            }
+
+        });
+    </script>
+
+</body>
+</html>

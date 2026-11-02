@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 40 - Card Rendering</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            width: 200px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px #ccc;
+        }
+
+        .card h2 {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Cards</h1>
+
+    <div class="container" id="cardContainer"></div>
+
+    <script>
+        const students = [
+            {
+                name: "Riya",
+                course: "BCA AI",
+                year: "Second Year"
+            },
+            {
+                name: "Pari",
+                course: "BCA",
+                year: "Second Year"
+            },
+            {
+                name: "Vedika",
+                course: "BCA AI",
+                year: "Second Year"
+            }
+        ];
+
+        // Reusable card rendering function
+        function createCard(student) {
+
+            const card = document.createElement("div");
+            card.className = "card";
+
+            const heading = document.createElement("h2");
+            heading.textContent = student.name;
+
+            const course = document.createElement("p");
+            course.textContent = "Course: " + student.course;
+
+            const year = document.createElement("p");
+            year.textContent = "Year: " + student.year;
+
+            card.appendChild(heading);
+            card.appendChild(course);
+            card.appendChild(year);
+
+            return card;
+        }
+
+        // Render all student cards
+        const container = document.getElementById("cardContainer");
+
+        students.forEach(function(student) {
+            container.appendChild(createCard(student));
+        });
+    </script>
+
+</body>
+</html>

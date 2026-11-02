@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Cleaning Utility</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1eaff;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            max-width: 550px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #6c4ab6;
+        }
+
+        textarea {
+            width: 95%;
+            height: 120px;
+            padding: 10px;
+        }
+
+        button {
+            background: #6c4ab6;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        #output {
+            background: #f3f0ff;
+            padding: 15px;
+            margin-top: 20px;
+            min-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Text Cleaning Utility</h1>
+
+    <p>Enter your text below:</p>
+
+    <textarea id="inputText"
+        placeholder="Enter text with extra spaces..."></textarea>
+
+    <br>
+
+    <button onclick="cleanText()">Clean Text</button>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+
+// Remove extra spaces
+function removeExtraSpaces(text) {
+
+    return text.trim().replace(/\s+/g, " ");
+
+}
+
+
+// Convert text to lowercase
+function convertToLowercase(text) {
+
+    return text.toLowerCase();
+
+}
+
+
+// Remove special characters
+function removeSpecialCharacters(text) {
+
+    return text.replace(/[^a-zA-Z0-9\s]/g, "");
+
+}
+
+
+// Main Cleaning Function
+function cleanText() {
+
+    let text = document.getElementById("inputText").value;
+
+    let result = removeExtraSpaces(text);
+
+    result = convertToLowercase(result);
+
+    result = removeSpecialCharacters(result);
+
+    document.getElementById("output").textContent =
+        "Cleaned Text: " + result;
+
+}
+
+</script>
+
+</body>
+</html>

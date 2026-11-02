@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope and Hoisting</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eeeaff;
+            padding: 25px;
+        }
+
+        .container {
+            background: white;
+            max-width: 750px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #6c4ab6;
+        }
+
+        .question {
+            background: #f5f2ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #6c4ab6;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #output {
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Scope and Hoisting Worksheet</h1>
+
+    <div class="question">
+        <h3>1. What is Scope?</h3>
+        <p>Scope defines where a variable can be accessed in JavaScript.</p>
+    </div>
+
+    <div class="question">
+        <h3>2. What is Hoisting?</h3>
+        <p>Hoisting is JavaScript's behavior of processing declarations
+        before executing the code.</p>
+    </div>
+
+    <div class="question">
+        <h3>3. What is the difference between var, let and const?</h3>
+        <p>var is function-scoped, while let and const are block-scoped.</p>
+    </div>
+
+    <button onclick="showResults()">Show Examples</button>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+
+// Example 1: Global Scope
+
+let college = "Invertis University";
+
+
+// Example 2: Function Scope
+
+function showName() {
+
+    let student = "Riya";
+
+    return student;
+}
+
+
+// Example 3: Block Scope
+
+let blockResult;
+
+if (true) {
+
+    let marks = 90;
+
+    blockResult = "Marks inside block: " + marks;
+}
+
+
+// Example 4: Hoisting with var
+
+function varHoisting() {
+
+    console.log("Before declaration:", value);
+
+    var value = 50;
+
+    return "After declaration: " + value;
+}
+
+
+// Example 5: Function Hoisting
+
+function greeting() {
+
+    return "Hello Student!";
+}
+
+
+// Display Results
+
+function showResults() {
+
+    let result = "";
+
+    result += "Global Scope: " + college + "<br>";
+
+    result += "Function Scope: " + showName() + "<br>";
+
+    result += blockResult + "<br>";
+
+    result += "Hoisting: " + varHoisting() + "<br>";
+
+    result += "Function Hoisting: " + greeting();
+
+    document.getElementById("output").innerHTML = result;
+
+}
+
+</script>
+
+</body>
+</html>

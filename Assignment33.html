@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Catalogue</title>
+</head>
+<body>
+
+    <h1>Product Catalogue</h1>
+    <p>Sample JSON Catalogue</p>
+
+    <script id="catalogue" type="application/json">
+    {
+        "catalogue": [
+            {
+                "id": 1,
+                "name": "Laptop",
+                "category": "Electronics",
+                "price": 55000,
+                "inStock": true
+            },
+            {
+                "id": 2,
+                "name": "Smartphone",
+                "category": "Electronics",
+                "price": 25000,
+                "inStock": true
+            },
+            {
+                "id": 3,
+                "name": "Headphones",
+                "category": "Accessories",
+                "price": 1500,
+                "inStock": false
+            }
+        ]
+    }
+    </script>
+
+    <script>
+        const jsonData = document.getElementById("catalogue").textContent;
+
+        try {
+            const data = JSON.parse(jsonData);
+
+            console.log("JSON is valid!");
+            console.log(data);
+
+        } catch (error) {
+            console.log("Invalid JSON:", error.message);
+        }
+    </script>
+
+</body>
+</html>

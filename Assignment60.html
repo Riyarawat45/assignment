@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Working JavaScript Challenge</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #eef2ff;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            max-width: 450px;
+            margin: auto;
+            border-radius: 12px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        li {
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Task Manager Challenge</h1>
+
+        <input type="text" id="taskInput" placeholder="Enter task">
+
+        <button onclick="addTask()">Add Task</button>
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+    <h2>Architecture Explanation</h2>
+
+    <p>HTML creates the webpage structure.</p>
+    <p>CSS designs the user interface.</p>
+    <p>JavaScript manages tasks and user events.</p>
+    <p>localStorage saves the task data.</p>
+
+    <script>
+        let tasks = JSON.parse(localStorage.getItem("challengeTasks")) || [];
+
+        function saveTasks() {
+            localStorage.setItem("challengeTasks", JSON.stringify(tasks));
+        }
+
+        function addTask() {
+            const input = document.getElementById("taskInput");
+            const value = input.value.trim();
+
+            if (value === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            tasks.push(value);
+
+            input.value = "";
+
+            saveTasks();
+            displayTasks();
+        }
+
+        function displayTasks() {
+            const list = document.getElementById("taskList");
+            list.innerHTML = "";
+
+            tasks.forEach(function(task) {
+                const li = document.createElement("li");
+                li.textContent = task;
+                list.appendChild(li);
+            });
+        }
+
+        displayTasks();
+    </script>
+
+</body>
+</html>

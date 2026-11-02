@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 31 - Shopping Cart</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            max-width: 450px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        input {
+            padding: 10px;
+            width: 90%;
+            margin: 10px 0;
+        }
+
+        button {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Shopping Cart</h1>
+
+    <p>Product: Laptop</p>
+    <p>Price: ₹50000</p>
+
+    <label>Enter Quantity:</label>
+
+    <input type="number" id="quantity" placeholder="Enter quantity">
+
+    <br>
+
+    <button onclick="calculateTotal()">Calculate Total</button>
+
+    <p id="result"></p>
+
+</div>
+
+<script>
+
+    const cart = {
+
+        productName: "Laptop",
+
+        price: 50000,
+
+        quantity: 0,
+
+        calculateTotal: function() {
+
+            return this.price * this.quantity;
+
+        }
+
+    };
+
+    function calculateTotal() {
+
+        let quantity =
+            Number(document.getElementById("quantity").value);
+
+        let result = document.getElementById("result");
+
+        // Quantity validation
+        if (!Number.isInteger(quantity) || quantity <= 0) {
+
+            result.textContent =
+                "Please enter a valid positive whole number!";
+
+            return;
+        }
+
+        cart.quantity = quantity;
+
+        let total = cart.calculateTotal();
+
+        result.textContent =
+            "Product: " + cart.productName +
+            " | Quantity: " + cart.quantity +
+            " | Total Price: ₹" + total;
+    }
+
+</script>
+
+</body>
+</html>

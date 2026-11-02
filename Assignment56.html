@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Testing Matrix</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 25px;
+            background: #f4f4f4;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid gray;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #34495e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Task Manager - Test Matrix</h1>
+
+    <table>
+        <tr>
+            <th>Test Case</th>
+            <th>Test Description</th>
+            <th>Expected Result</th>
+            <th>Status</th>
+        </tr>
+
+        <tr>
+            <td>TC01</td>
+            <td>Add a task</td>
+            <td>Task should be added</td>
+            <td>Pass</td>
+        </tr>
+
+        <tr>
+            <td>TC02</td>
+            <td>Empty task</td>
+            <td>Error message displayed</td>
+            <td>Pass</td>
+        </tr>
+
+        <tr>
+            <td>TC03</td>
+            <td>Edit a task</td>
+            <td>Task should update</td>
+            <td>Pass</td>
+        </tr>
+
+        <tr>
+            <td>TC04</td>
+            <td>Delete a task</td>
+            <td>Task should be removed</td>
+            <td>Pass</td>
+        </tr>
+
+        <tr>
+            <td>TC05</td>
+            <td>Refresh page</td>
+            <td>Tasks should remain saved</td>
+            <td>Pass</td>
+        </tr>
+
+        <tr>
+            <td>TC06</td>
+            <td>Complete a task</td>
+            <td>Task marked completed</td>
+            <td>Pass</td>
+        </tr>
+    </table>
+
+    <h2>Fixes Made</h2>
+
+    <ul>
+        <li>Added empty input validation.</li>
+        <li>Fixed task deletion functionality.</li>
+        <li>Added localStorage for saving tasks.</li>
+        <li>Improved task filtering.</li>
+    </ul>
+
+</body>
+</html>

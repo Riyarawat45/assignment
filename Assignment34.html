@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 34 - Catalogue</title>
+</head>
+<body>
+
+    <h1>Product Catalogue</h1>
+    <div id="products"></div>
+
+    <script>
+        const catalogue = [
+            { id: 1, name: "Laptop", price: 55000, inStock: true },
+            { id: 2, name: "Mobile", price: 25000, inStock: true },
+            { id: 3, name: "Headphones", price: 1500, inStock: false },
+            { id: 4, name: "Keyboard", price: 1200, inStock: true }
+        ];
+
+        // Get all products
+        function getAllProducts() {
+            return catalogue;
+        }
+
+        // Find product by ID
+        function findProduct(id) {
+            return catalogue.find(product => product.id === id);
+        }
+
+        // Get available products
+        function getAvailableProducts() {
+            return catalogue.filter(product => product.inStock);
+        }
+
+        // Calculate total price
+        function calculateTotal() {
+            return catalogue.reduce(
+                (total, product) => total + product.price, 0
+            );
+        }
+
+        // Display products
+        const container = document.getElementById("products");
+
+        getAllProducts().forEach(product => {
+            const p = document.createElement("p");
+            p.textContent = product.name + " - ₹" + product.price;
+            container.appendChild(p);
+        });
+
+        // Test scenarios
+        console.log("All Products:", getAllProducts());
+        console.log("Product ID 2:", findProduct(2));
+        console.log("Available Products:", getAvailableProducts());
+        console.log("Total Price:", calculateTotal());
+    </script>
+
+</body>
+</html>

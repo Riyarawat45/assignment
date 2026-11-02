@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 39 - Interactive Profile</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f4f4;
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Interactive Profile</h1>
+
+    <div class="card">
+        <h2 id="name">Riya Rawat</h2>
+        <p id="course">BCA AI Student</p>
+        <p id="message">Welcome to my profile!</p>
+
+        <button id="changeName">Change Name</button>
+        <button id="changeCourse">Change Course</button>
+        <button id="welcome">Welcome Message</button>
+    </div>
+
+    <h3>Event Map</h3>
+
+    <ul>
+        <li>Change Name Button - Updates student name.</li>
+        <li>Change Course Button - Updates course.</li>
+        <li>Welcome Button - Displays welcome message.</li>
+    </ul>
+
+    <script>
+        const name = document.getElementById("name");
+        const course = document.getElementById("course");
+        const message = document.getElementById("message");
+
+        // Event 1: Change Name
+        document.getElementById("changeName").addEventListener("click", function() {
+            name.textContent = "Chandni";
+        });
+
+        // Event 2: Change Course
+        document.getElementById("changeCourse").addEventListener("click", function() {
+            course.textContent = "Bachelor of Computer Applications - AI";
+        });
+
+        // Event 3: Welcome Message
+        document.getElementById("welcome").addEventListener("click", function() {
+            message.textContent = "Hello! Welcome to my interactive profile.";
+        });
+    </script>
+
+</body>
+</html>

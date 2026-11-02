@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Storage Helper Module</title>
+</head>
+<body>
+
+    <h1>Storage Helper</h1>
+
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <button onclick="saveName()">Save Name</button>
+    <button onclick="showName()">Show Name</button>
+    <button onclick="removeName()">Remove Name</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        // Reusable Storage Helper
+        const StorageHelper = {
+
+            save: function(key, value) {
+                localStorage.setItem(key, JSON.stringify(value));
+            },
+
+            get: function(key) {
+                const data = localStorage.getItem(key);
+
+                if (data === null) {
+                    return null;
+                }
+
+                try {
+                    return JSON.parse(data);
+                } catch (error) {
+                    return null;
+                }
+            },
+
+            remove: function(key) {
+                localStorage.removeItem(key);
+            },
+
+            clear: function() {
+                localStorage.clear();
+            }
+        };
+
+        function saveName() {
+            const name = document.getElementById("name").value.trim();
+
+            if (name === "") {
+                alert("Please enter your name");
+                return;
+            }
+
+            StorageHelper.save("studentName", name);
+            alert("Name Saved!");
+        }
+
+        function showName() {
+            const name = StorageHelper.get("studentName");
+
+            document.getElementById("result").textContent =
+                name ? "Saved Name: " + name : "No name found";
+        }
+
+        function removeName() {
+            StorageHelper.remove("studentName");
+
+            document.getElementById("result").textContent =
+                "Name Removed Successfully!";
+        }
+    </script>
+
+</body>
+</html>

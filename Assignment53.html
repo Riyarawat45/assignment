@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Architecture</title>
+</head>
+<body>
+
+    <h1>Student Task Manager</h1>
+
+    <h2>Project Architecture</h2>
+
+    <ul>
+        <li>HTML - Structure of the application.</li>
+        <li>CSS - Design and responsive layout.</li>
+        <li>JavaScript - Application functionality.</li>
+        <li>localStorage - Save tasks in the browser.</li>
+    </ul>
+
+    <h2>Starter Utility Functions</h2>
+
+    <div id="output"></div>
+
+    <script>
+        const tasks = [
+            "Complete JavaScript Assignment",
+            "Practice DSA",
+            "Study HTML and CSS"
+        ];
+
+        // Add Task
+        function addTask(task) {
+            if (task.trim() === "") {
+                return "Task cannot be empty";
+            }
+
+            tasks.push(task);
+            return "Task added successfully";
+        }
+
+        // Delete Task
+        function deleteTask(index) {
+            if (index < 0 || index >= tasks.length) {
+                return "Invalid task index";
+            }
+
+            tasks.splice(index, 1);
+            return "Task deleted successfully";
+        }
+
+        // Get All Tasks
+        function getTasks() {
+            return tasks;
+        }
+
+        // Count Tasks
+        function countTasks() {
+            return tasks.length;
+        }
+
+        console.log(addTask("Build a project"));
+        console.log(getTasks());
+        console.log("Total Tasks:", countTasks());
+
+        document.getElementById("output").textContent =
+            "Total Tasks: " + countTasks();
+    </script>
+
+</body>
+</html>

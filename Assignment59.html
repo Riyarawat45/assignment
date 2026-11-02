@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Final Assessment</title>
+</head>
+<body>
+
+    <h1>JavaScript Problem Solutions</h1>
+
+    <h2>1. Reverse a String</h2>
+    <p id="reverse"></p>
+
+    <h2>2. Find Maximum Number</h2>
+    <p id="maximum"></p>
+
+    <h2>3. Check Even or Odd</h2>
+    <p id="even"></p>
+
+    <h2>4. Sum of Array</h2>
+    <p id="sum"></p>
+
+    <script>
+        // Reverse String
+        function reverseString(str) {
+            return str.split("").reverse().join("");
+        }
+
+        document.getElementById("reverse").textContent =
+            reverseString("JavaScript");
+
+        // Find Maximum Number
+        function findMaximum(numbers) {
+            return Math.max(...numbers);
+        }
+
+        document.getElementById("maximum").textContent =
+            findMaximum([10, 25, 5, 40, 15]);
+
+        // Even or Odd
+        function checkEvenOdd(number) {
+            return number % 2 === 0 ? "Even" : "Odd";
+        }
+
+        document.getElementById("even").textContent =
+            checkEvenOdd(12);
+
+        // Sum of Array
+        function arraySum(numbers) {
+            return numbers.reduce((total, num) => total + num, 0);
+        }
+
+        document.getElementById("sum").textContent =
+            arraySum([10, 20, 30, 40]);
+
+        // Test Cases
+        console.log(reverseString("Hello")); 
+        console.log(findMaximum([2, 8, 5]));
+        console.log(checkEvenOdd(7));
+        console.log(arraySum([1, 2, 3, 4]));
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Lifecycle</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 30px;
+            text-align: center;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Load - Update - Save - Render Lifecycle</h1>
+
+    <div class="box">
+        <h2>1. Load</h2>
+        <p>Load previously stored data from localStorage.</p>
+    </div>
+
+    <div class="box">
+        <h2>2. Update</h2>
+        <p>Modify the existing data when the user makes changes.</p>
+    </div>
+
+    <div class="box">
+        <h2>3. Save</h2>
+        <p>Save updated data into localStorage.</p>
+    </div>
+
+    <div class="box">
+        <h2>4. Render</h2>
+        <p>Display the latest data on the webpage.</p>
+    </div>
+
+    <h2>Practical Example</h2>
+
+    <input type="text" id="task" placeholder="Enter your task">
+    <button onclick="addTask()">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        let tasks = [];
+
+        // LOAD
+        function loadTasks() {
+            tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            renderTasks();
+        }
+
+        // UPDATE and SAVE
+        function addTask() {
+            const input = document.getElementById("task");
+            const value = input.value.trim();
+
+            if (value === "") return;
+
+            tasks.push(value);
+
+            // SAVE
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+
+            input.value = "";
+
+            // RENDER
+            renderTasks();
+        }
+
+        // RENDER
+        function renderTasks() {
+            const list = document.getElementById("taskList");
+            list.innerHTML = "";
+
+            tasks.forEach(function(task) {
+                const li = document.createElement("li");
+                li.textContent = task;
+                list.appendChild(li);
+            });
+        }
+
+        // Initial Load
+        loadTasks();
+    </script>
+
+</body>
+</html>

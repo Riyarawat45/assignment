@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Storage vs Session Storage</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 30px;
+            background: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background: #34495e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>localStorage vs sessionStorage</h1>
+
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>localStorage</th>
+            <th>sessionStorage</th>
+        </tr>
+
+        <tr>
+            <td>Storage Duration</td>
+            <td>Until manually deleted</td>
+            <td>Until browser tab is closed</td>
+        </tr>
+
+        <tr>
+            <td>Data Sharing</td>
+            <td>Same origin tabs</td>
+            <td>Same tab only</td>
+        </tr>
+
+        <tr>
+            <td>Capacity</td>
+            <td>Usually around 5 MB</td>
+            <td>Usually around 5 MB</td>
+        </tr>
+
+        <tr>
+            <td>Use</td>
+            <td>Save user preferences</td>
+            <td>Temporary session data</td>
+        </tr>
+    </table>
+
+    <h2>Conclusion</h2>
+
+    <p>
+        localStorage is useful for storing data permanently
+        in the browser, while sessionStorage stores data
+        temporarily for a browser tab session.
+    </p>
+
+</body>
+</html>

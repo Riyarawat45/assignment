@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Navigation Menu</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #3949ab;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .menu a:hover {
+            color: yellow;
+        }
+
+        .menu-btn {
+            display: none;
+            background: white;
+            color: #3949ab;
+            border: none;
+            padding: 8px 12px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .content {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        @media (max-width: 600px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 65px;
+                right: 0;
+                background: #3949ab;
+                width: 100%;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">MyWebsite</div>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <div class="menu" id="menu">
+
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+
+        </div>
+
+    </nav>
+
+    <div class="content">
+
+        <h1>Welcome to My Website</h1>
+
+        <p>This is a responsive navigation menu.</p>
+
+    </div>
+
+    <script>
+
+        function toggleMenu() {
+
+            let menu = document.getElementById("menu");
+
+            menu.classList.toggle("active");
+
+        }
+
+    </script>
+
+</body>
+</html>

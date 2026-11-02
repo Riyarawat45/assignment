@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 32 - Profile Summary</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #fce7f3;
+            padding: 30px;
+        }
+
+        .profile {
+            background: white;
+            max-width: 450px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #db2777;
+        }
+
+        button {
+            background: #db2777;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="profile">
+
+    <h1>My Profile</h1>
+
+    <button onclick="generateProfile()">
+        Generate Profile Summary
+    </button>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+
+    // Creating profile object
+    const profile = {
+
+        name: "Riya",
+
+        course: "BCA Artificial Intelligence",
+
+        college: "Invertis University",
+
+        skills: ["HTML", "CSS", "JavaScript"],
+
+        city: "Bareilly"
+
+    };
+
+    function generateProfile() {
+
+        let output = "";
+
+        // Object.keys() returns all property names
+        const keys = Object.keys(profile);
+
+        // Object.values() returns all property values
+        const values = Object.values(profile);
+
+        // Object.entries() returns key-value pairs
+        const entries = Object.entries(profile);
+
+        output += "<h3>Profile Details</h3>";
+
+        entries.forEach(function(entry) {
+
+            output += "<p><b>" + entry[0] +
+                ":</b> " + entry[1] + "</p>";
+
+        });
+
+        output += "<h3>Object Keys</h3>";
+        output += keys.join(", ");
+
+        output += "<h3>Object Values</h3>";
+        output += values.map(function(value) {
+            return Array.isArray(value) ? value.join(", ") : value;
+        }).join(" | ");
+
+        document.getElementById("output").innerHTML = output;
+    }
+
+</script>
+
+</body>
+</html>

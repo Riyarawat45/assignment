@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 29 - Object Data</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0f4f8;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #2563eb;
+        }
+
+        pre {
+            background: #e5e7eb;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Object Project</h1>
+
+    <h3>Student Details:</h3>
+    <pre id="output">Click the button to view details.</pre>
+
+    <h3>Test Cases:</h3>
+    <div id="tests"></div>
+
+    <button onclick="showDetails()">Show Student Details</button>
+
+</div>
+
+<script>
+
+    // Creating a student object
+    const student = {
+        name: "Riya",
+        course: "BCA AI",
+        semester: 3,
+        marks: 85,
+        address: {
+            city: "Bareilly",
+            state: "Uttar Pradesh"
+        }
+    };
+
+    // Function to display student details
+    function showDetails() {
+
+        document.getElementById("output").textContent =
+            "Name: " + student.name +
+            "\nCourse: " + student.course +
+            "\nSemester: " + student.semester +
+            "\nMarks: " + student.marks +
+            "\nCity: " + student.address.city;
+
+        const testCases = [
+            "Test 1: Name should be Riya - " +
+            (student.name === "Riya" ? "PASS" : "FAIL"),
+
+            "Test 2: Course should be BCA AI - " +
+            (student.course === "BCA AI" ? "PASS" : "FAIL"),
+
+            "Test 3: Marks should be 85 - " +
+            (student.marks === 85 ? "PASS" : "FAIL")
+        ];
+
+        document.getElementById("tests").innerHTML =
+            testCases.join("<br>");
+    }
+
+</script>
+
+</body>
+</html>

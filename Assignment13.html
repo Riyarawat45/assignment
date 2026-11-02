@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Landing Page</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f3ff;
+            color: #222;
+        }
+
+        header {
+            background: #6c4ab6;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            font-size: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: #6c4ab6;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .hero button {
+            background: #6c4ab6;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: #4b2e83;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>CreativeSpace</h2>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to CreativeSpace</h1>
+
+        <p>
+            Explore your creativity, learn new skills
+            and turn your ideas into reality.
+            Start your journey with us today!
+        </p>
+
+        <button onclick="showMessage()">Get Started</button>
+    </section>
+
+    <footer>
+        <p>© 2026 CreativeSpace. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showMessage() {
+            alert("Welcome! Let's start learning.");
+        }
+    </script>
+
+</body>
+</html>

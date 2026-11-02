@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Debugging</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #e8f0ff;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 12px;
+        }
+
+        button {
+            background: #3157a4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>JavaScript Debugging</h1>
+
+    <button onclick="runCode()">Run Fixed Code</button>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+
+// Corrected function to add two numbers
+function addNumbers(a, b) {
+    return a + b;
+}
+
+// Corrected function to find square
+function findSquare(number) {
+    return number * number;
+}
+
+// Corrected function to check even number
+function checkEven(number) {
+    return number % 2 === 0;
+}
+
+// Corrected loop
+function printNumbers() {
+    let numbers = "";
+
+    for (let i = 1; i <= 5; i++) {
+        numbers += i + " ";
+    }
+
+    return numbers;
+}
+
+function runCode() {
+
+    let result = "";
+
+    result += "Addition: " + addNumbers(10, 20) + "<br>";
+
+    result += "Square: " + findSquare(5) + "<br>";
+
+    result += "Is 10 Even? " + checkEven(10) + "<br>";
+
+    result += "Numbers: " + printNumbers();
+
+    document.getElementById("output").innerHTML = result;
+}
+
+</script>
+
+</body>
+</html>

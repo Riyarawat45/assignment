@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reading List</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f3f4f6;
+            padding: 30px;
+        }
+        .box {
+            background: white;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        li {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Reading List 📚</h1>
+
+    <div class="box">
+        <input type="text" id="bookInput" placeholder="Enter book name">
+        <button onclick="addBook()">Add Book</button>
+        <ul id="bookList"></ul>
+    </div>
+
+    <script>
+        const books = [];
+
+        function displayBooks() {
+            const list = document.getElementById("bookList");
+            list.innerHTML = "";
+
+            books.forEach(function(book, index) {
+                const li = document.createElement("li");
+                li.textContent = book + " ";
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+
+                deleteBtn.addEventListener("click", function() {
+                    books.splice(index, 1);
+                    displayBooks();
+                });
+
+                li.appendChild(deleteBtn);
+                list.appendChild(li);
+            });
+        }
+
+        function addBook() {
+            const input = document.getElementById("bookInput");
+            const book = input.value.trim();
+
+            if (book === "") {
+                alert("Please enter a book name");
+                return;
+            }
+
+            books.push(book);
+            input.value = "";
+            displayBooks();
+        }
+    </script>
+
+</body>
+</html>

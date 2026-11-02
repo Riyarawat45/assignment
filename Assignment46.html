@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Persistent Settings Panel</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 40px;
+            transition: 0.3s;
+        }
+        .dark {
+            background: #222;
+            color: white;
+        }
+        .light {
+            background: white;
+            color: black;
+        }
+        .panel {
+            padding: 25px;
+            border: 1px solid gray;
+            display: inline-block;
+            border-radius: 10px;
+        }
+        button, select {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Settings</h1>
+
+    <div class="panel">
+        <h2>Appearance Settings</h2>
+
+        <label for="theme">Choose Theme:</label>
+
+        <select id="theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+
+        <br>
+
+        <button onclick="saveSettings()">Save Settings</button>
+    </div>
+
+    <script>
+        const themeSelect = document.getElementById("theme");
+
+        function applyTheme(theme) {
+            document.body.className = theme;
+            themeSelect.value = theme;
+        }
+
+        function saveSettings() {
+            const theme = themeSelect.value;
+
+            localStorage.setItem("userTheme", theme);
+
+            applyTheme(theme);
+
+            alert("Settings Saved Successfully!");
+        }
+
+        // Load saved settings
+        const savedTheme = localStorage.getItem("userTheme") || "light";
+
+        applyTheme(savedTheme);
+    </script>
+
+</body>
+</html>

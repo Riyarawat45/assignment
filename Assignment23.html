@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Functions</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1eaff;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #6c4ab6;
+        }
+
+        button {
+            background: #6c4ab6;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+        pre {
+            background: #f3f3f3;
+            padding: 15px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>JavaScript Utility Functions</h1>
+
+    <button onclick="showResults()">Show Results</button>
+
+    <pre id="output"></pre>
+
+</div>
+
+<script>
+
+// Default Settings
+const defaultSettings = {
+
+    theme: "Light",
+
+    language: "English",
+
+    notifications: true
+
+};
+
+
+// Custom Settings
+const customSettings = {
+
+    theme: "Dark",
+
+    notifications: false
+
+};
+
+
+// Function to Merge Settings
+function mergeSettings(defaults, custom) {
+
+    return {
+        ...defaults,
+        ...custom
+    };
+
+}
+
+
+// Shopping Cart Data
+const cart = [
+
+    {
+        name: "Laptop",
+        price: 50000,
+        quantity: 1
+    },
+
+    {
+        name: "Mouse",
+        price: 500,
+        quantity: 2
+    },
+
+    {
+        name: "Keyboard",
+        price: 1500,
+        quantity: 1
+    }
+
+];
+
+
+// Function to Calculate Total
+function calculateTotal(items) {
+
+    return items.reduce(function(total, item) {
+
+        return total + (item.price * item.quantity);
+
+    }, 0);
+
+}
+
+
+// Display Results
+function showResults() {
+
+    let merged = mergeSettings(
+        defaultSettings,
+        customSettings
+    );
+
+    let total = calculateTotal(cart);
+
+    let output = "";
+
+    output += "Merged Settings:\n";
+
+    output += JSON.stringify(merged, null, 2);
+
+    output += "\n\nShopping Cart Total: ₹" + total;
+
+    document.getElementById("output").textContent = output;
+
+}
+
+</script>
+
+</body>
+</html>

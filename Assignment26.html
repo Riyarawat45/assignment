@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Dataset</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eaf2ff;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #3157a4;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #3157a4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .product {
+            background: #f1f5ff;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        #summary {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Product Dataset</h1>
+
+    <button onclick="showAll()">Show All Products</button>
+
+    <button onclick="filterProducts()">Products Under ₹1000</button>
+
+    <button onclick="showSummary()">Show Summary</button>
+
+    <div id="products"></div>
+
+    <div id="summary"></div>
+
+</div>
+
+<script>
+
+// Product Dataset
+const productData = [
+
+    { name: "Laptop", price: 50000, category: "Electronics" },
+
+    { name: "Mouse", price: 500, category: "Electronics" },
+
+    { name: "Keyboard", price: 1200, category: "Electronics" },
+
+    { name: "Notebook", price: 100, category: "Stationery" },
+
+    { name: "Pen", price: 20, category: "Stationery" },
+
+    { name: "Headphones", price: 900, category: "Electronics" }
+
+];
+
+
+// Display Products
+function displayProducts(products) {
+
+    let output = "";
+
+    products.forEach(function(product) {
+
+        output += `
+            <div class="product">
+                <h3>${product.name}</h3>
+                <p>Price: ₹${product.price}</p>
+                <p>Category: ${product.category}</p>
+            </div>
+        `;
+
+    });
+
+    document.getElementById("products").innerHTML = output;
+
+}
+
+
+// Show All Products
+function showAll() {
+
+    displayProducts(productData);
+
+}
+
+
+// Filter Products
+function filterProducts() {
+
+    let filtered = productData.filter(function(product) {
+
+        return product.price < 1000;
+
+    });
+
+    displayProducts(filtered);
+
+}
+
+
+// Show Summary
+function showSummary() {
+
+    let totalProducts = productData.length;
+
+    let totalPrice = productData.reduce(function(total, product) {
+
+        return total + product.price;
+
+    }, 0);
+
+    let averagePrice = totalPrice / totalProducts;
+
+    document.getElementById("summary").innerHTML =
+
+        "Total Products: " + totalProducts + "<br>" +
+
+        "Total Price: ₹" + totalPrice + "<br>" +
+
+        "Average Price: ₹" + averagePrice.toFixed(2);
+
+}
+
+showAll();
+
+</script>
+
+</body>
+</html>

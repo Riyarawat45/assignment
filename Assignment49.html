@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Persistent To-Do App</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #eef2ff;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 450px;
+            margin: auto;
+            border-radius: 12px;
+        }
+        button, input {
+            padding: 10px;
+            margin: 5px;
+        }
+        li {
+            text-align: left;
+            padding: 8px;
+        }
+        .done {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Persistent To-Do List</h1>
+
+        <input type="text" id="taskInput" placeholder="Enter task">
+
+        <button onclick="addTask()">Add</button>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <h2>Testing Checklist</h2>
+
+    <p>☑ Add a new task</p>
+    <p>☑ Mark task as completed</p>
+    <p>☑ Delete a task</p>
+    <p>☑ Refresh page and check saved tasks</p>
+    <p>☑ Check empty task validation</p>
+
+    <script>
+        let tasks = JSON.parse(localStorage.getItem("todoTasks")) || [];
+
+        function saveTasks() {
+            localStorage.setItem("todoTasks", JSON.stringify(tasks));
+        }
+
+        function addTask() {
+            const input = document.getElementById("taskInput");
+            const value = input.value.trim();
+
+            if (value === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            tasks.push({
+                id: Date.now(),
+                text: value,
+                completed: false
+            });
+
+            input.value = "";
+
+            saveTasks();
+            renderTasks();
+        }
+
+        function renderTasks() {
+            const list = document.getElementById("taskList");
+            list.innerHTML = "";
+
+            tasks.forEach(function(task) {
+                const li = document.createElement("li");
+
+                const span = document.createElement("span");
+                span.textContent = task.text;
+
+                if (task.completed) {
+                    span.classList.add("done");
+                }
+
+                const completeBtn = document.createElement("button");
+                completeBtn.textContent = task.completed ? "Undo" : "Done";
+
+                completeBtn.onclick = function() {
+                    task.completed = !task.completed;
+                    saveTasks();
+                    renderTasks();
+                };
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+
+                deleteBtn.onclick = function() {
+                    tasks = tasks.filter(t => t.id !== task.id);
+                    saveTasks();
+                    renderTasks();
+                };
+
+                li.append(span, completeBtn, deleteBtn);
+                list.appendChild(li);
+            });
+        }
+
+        // Load saved tasks when page opens
+        renderTasks();
+    </script>
+
+</body>
+</html>
